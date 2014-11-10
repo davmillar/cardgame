@@ -1,0 +1,4 @@
+#Card Game of Unintentional Math Learnings
+* Created by David Millar sometime in 2008
+* Now available to play at http://iamawesome.info/cardgame/
+* Patches welcome!
