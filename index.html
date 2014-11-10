@@ -1,0 +1,164 @@
+<html>
+<head>
+  <title>Card Game of Unintentional Math Learnings</title>
+  <script type="text/javascript" src="/cardgame/scripts/flip.js"></script>
+  <link rel="stylesheet" href="/cardgame/style/style.css" />
+	 <base href="/cardgame/" />
+</head>
+<body onload="preload();">
+
+  <div id="draw" class="goalset"><img src="images/logo.png" alt="Logo" /></div>
+
+  <div id="draw" class="goalset">
+    <img src="images/or_deck.png" id="pile0" class="pile" alt="Equation Deck" onclick="flip(0);" />
+    <img src="images/outline.png" id="pile1" class="pile" alt="Equation Deck" onclick="flip(1);" />
+    <img src="images/outline.png" id="pile2" class="pile" alt="Status Deck" onclick="flip(2);" />
+    <img src="images/outline.png" alt="Temporary Card Slot" id="temp" />
+    <img src="images/ooo.png" alt="Math Style" id="mathstyle" onclick="switchooo();" />
+
+    <div class="goal">Score: <span id="score">0</span><br/>
+    Orange Cards: &#8734;<br/>
+    Blue Cards: <span id="draws1">0</span><br/>
+    Green Cards: <span id="draws2">0</span></div>
+  </div>
+
+<!-- GROUP 0 -->
+  <div id="slotgrp0" class="goalset">
+    <img src="images/johnny.png" alt="Johnny" onclick="grncard(0);" />
+    <img src="images/outline.png" alt="Card Slot" id="slot1" class="slot" onclick="choose(1,0);" />
+    <img src="images/outline.png" alt="Card Slot" id="slot2" class="slot" onclick="choose(2,0);" />
+    <img src="images/outline.png" alt="Card Slot" id="slot3" class="slot" onclick="choose(3,0);" />
+    <img src="images/outline.png" alt="Card Slot" id="slot4" class="slot" onclick="choose(4,0);" />
+    <img src="images/outline.png" alt="Card Slot" id="slot5" class="slot" onclick="choose(5,0);" />
+    <img src="images/0star.png" alt="Score Card" id="win0" class="hide" />
+    <img src="images/pu_back.png" alt="Bonus Card" id="bonus0" class="pile hide" onclick="bonuscard();" />
+
+    <div class="goal">Goal: <span id="goalbox0">100</span> <span class="red">&plusmn; 50</span><br/>
+    Equation: <span id="current0">0</span><br/>
+    Status: <span id="stat0" class="red">OK</span></div>
+  </div>
+<!-- GROUP 0 -->
+
+<!-- GROUP 3 -->
+  <div id="slotgrp3" class="goalset hide">
+    <img src="images/carlos.png" alt="Carlos" onclick="grncard(3);" />
+    <img src="images/outline.png" alt="Card Slot" id="slot12" class="slot" onclick="choose(12,3);" />
+    <img src="images/outline.png" alt="Card Slot" id="slot13" class="slot" onclick="choose(13,3);" />
+    <img src="images/outline.png" alt="Card Slot" id="slot14" class="slot" onclick="choose(14,3);" />
+    <img src="images/outline.png" alt="Card Slot" id="slot15" class="slot" onclick="choose(15,3);" />
+    <img src="images/outline.png" alt="Card Slot" id="slot16" class="slot" onclick="choose(16,3);" />
+    <img src="images/0star.png" alt="Score Card" id="win3" class="hide" />
+    <img src="images/gr_back.png" alt="Won Card" id="bonus3" class="hide" />
+
+    <div class="goal">Goal: <span id="goalbox3">1200</span> <span class="red">&plusmn; 200</span><br/>
+    Equation: <span id="current3">0</span><br/>
+    Status: <span id="stat3" class="red">OK</span><br/>
+    Tries: <span id="tries3">0</span></div>
+  </div>
+<!-- GROUP 3 -->
+
+<!-- GROUP 2 -->
+  <div id="slotgrp2" class="goalset hide">
+    <img src="images/alien.png" alt="Alien" onclick="grncard(2);" />
+    <img src="images/outline.png" alt="Card Slot" id="slot8" class="slot" onclick="choose(8,2);" />
+    <img src="images/outline.png" alt="Card Slot" id="slot9" class="slot" onclick="choose(9,2);" />
+    <img src="images/outline.png" alt="Card Slot" id="slot10" class="slot" onclick="choose(10,2);" />
+    <img src="images/outline.png" alt="Card Slot" id="slot11" class="slot" onclick="choose(11,2);" />
+    <img src="images/0star.png" alt="Score Card" id="win2" class="hide" />
+    <img src="images/gr_back.png" alt="Won Card" id="bonus2" class="hide" />
+
+    <div class="goal">Goal: <span id="goalbox2">-150</span> <span class="red">&plusmn; 50</span><br/>
+    Equation: <span id="current2">0</span><br/>
+    Status: <span id="stat2" class="red">OK</span><br/>
+    Tries: <span id="tries2">0</span></div>
+  </div>
+<!-- GROUP 2 -->
+
+<!-- GROUP 4 -->
+  <div id="slotgrp4" class="goalset hide">
+    <img src="images/lopez.png" alt="Lopez" onclick="grncard(4);" />
+    <img src="images/outline.png" alt="Card Slot" id="slot17" class="slot" onclick="choose(17,4);" />
+    <img src="images/outline.png" alt="Card Slot" id="slot18" class="slot" onclick="choose(18,4);" />
+    <img src="images/outline.png" alt="Card Slot" id="slot19" class="slot" onclick="choose(19,4);" />
+    <img src="images/0star.png" alt="Score Card" id="win4" class="hide" />
+    <img src="images/gr_back.png" alt="Won Card" id="bonus4" class="hide" />
+
+    <div class="goal">Goal: <span id="goalbox4">0</span> <span class="red">&plusmn; 25</span><br/>
+    Equation: <span id="current4">0</span><br/>
+    Status: <span id="stat4" class="red">OK</span><br/>
+    Tries: <span id="tries4">0</span></div>
+  </div>
+<!-- GROUP 4 -->
+
+<!-- GROUP 1 -->
+  <div id="slotgrp1" class="goalset hide">
+    <img src="images/sara.png" alt="Sara" onclick="grncard(1);" />
+    <img src="images/outline.png" alt="Card Slot" id="slot6" class="slot" onclick="choose(6,1);" />
+    <img src="images/outline.png" alt="Card Slot" id="slot7" class="slot" onclick="choose(7,1);" />
+    <img src="images/0star.png" alt="Score Card" id="win1" class="hide" />
+    <img src="images/gr_back.png" alt="Won Card" id="bonus1" class="hide" />
+
+    <div class="goal">Goal: <span id="goalbox1">50</span> <span class="red">&plusmn; 25</span><br/>
+    Equation: <span id="current1">0</span><br/>
+    Status: <span id="stat1" class="red">OK</span><br/>
+    Tries: <span id="tries1">0</span></div>
+  </div>
+<!-- GROUP 1 -->
+
+<!-- BEAR GAME -->
+  <div id="beargame" class="goalset hide">
+    <img src="images/bear.png" alt="Bear" />
+    <img src="images/outline.png" alt="Card Slot" id="bearslot" class="slot" onclick="bearplay();" />
+    <img src="images/0star.png" alt="Score Card" id="bearwin" class="hide" />
+
+    <div class="goal">Goal: <span class="red">Sandwiches</span><br/>
+    Card: <span id="bearcurrent">Not Sandwich</span><br/>
+    Basket Space: <span id="beartries">0</span></div>
+  </div>
+<!-- BEAR GAME -->
+
+<!-- ACE GAME -->
+  <div id="acegame" class="goalset hide">
+    <img src="images/ace.png" alt="Ace" />
+    <img src="images/outline.png" alt="Card Slot" id="aceslot0" class="slot" onclick="aceplay(0);" />
+    <img src="images/outline.png" alt="Card Slot" id="aceslot1" class="slot" onclick="aceplay(1);" />
+    <img src="images/outline.png" alt="Card Slot" id="aceslot2" class="slot" onclick="aceplay(2);" />
+    <img src="images/outline.png" alt="Card Slot" id="aceslot3" class="slot" onclick="aceplay(3);" />
+    <img src="images/outline.png" alt="Card Slot" id="aceslot4" class="slot" onclick="aceplay(4);" />
+    <img src="images/0star.png" alt="Score Card" id="acewin" class="hide" />
+
+    <div class="goal">Goal: <span class="red">Fine Things</span></div>
+  </div>
+<!-- ACE GAME -->
+
+  <div><p id="copy">Last Updated <span class="red">9/4/2008</span>.<br/>Images and Game Created by <a href="http://www.thegriddle.net">David Millar</a> &copy;2008<br/>Suggestions always welcome and appreciated - <a href="mailto:davmillar@gmail.com">e-mail me</a>!</p></div>
+
+  <div id="bg" onclick="hide_msg();"></div>
+  <div id="msg" onclick="hide_msg();">
+    <div id="alertlogo">
+      <img src="images/logo.png" alt="Logo" />
+    </div>
+    <img src="images/johnny.png" alt="Alert Image" id="msgimg" />
+    <br/><p id="msgtxt">Hi there! Welcome to our game! I'm Johnny and I'm more excited than a stick of butter! Yay math!<br/><br/>To play, make an equation by putting orange and blue cards in the card blocks next to me and my crazy friends.<br/><br/>First click the orange pile, then click an empty spot to place a card.</p><br/><span class="red">Click to close dialog.</span>
+  </div>
+
+  <div id="preload">
+    <img src="images/alien.png" alt="Preload" />
+    <img src="images/sara.png" alt="Preload" />
+    <img src="images/carlos.png" alt="Preload" />
+    <img src="images/bear.png" alt="Preload" />
+    <img src="images/ace.png" alt="Preload" />
+    <img src="images/bl_back.png" alt="Preload" />
+    <img src="images/or_back.png" alt="Preload" />
+    <img src="images/pu_back.png" alt="Preload" />
+    <img src="images/gr_back.png" alt="Preload" />
+    <img src="images/sstar.png" alt="Preload" />
+    <img src="images/0star.png" alt="Preload" />
+    <img src="images/1star.png" alt="Preload" />
+    <img src="images/2star.png" alt="Preload" />
+    <img src="outline_mini.png" alt="Preload" />
+    <span id="preloadb"></span>
+  </div>
+
+</body>
+</html>
